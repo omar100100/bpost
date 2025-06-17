@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "title": "আমার প্রথম ব্লগ",
+      "content": "এইটা আমার প্রথম ব্লগ পোস্ট। খুব ভালো লাগছে।",
+      "image": "https://via.placeholder.com/600x300"
+    },
+    {
+      "title": "দ্বিতীয় পোস্ট",
+      "content": "এই পোস্টে আমি নতুন কিছু শেয়ার করেছি।",
+      "image": "https://via.placeholder.com/600x300"
+    }
+  ]
+}
