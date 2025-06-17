@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      margin-top: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .post {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+    }
+
+    .post img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .post-title {
+      font-size: 24px;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .post-content {
+      font-size: 16px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Blog</h1>
+    <div id="posts-container"></div>
+  </div>
+
+  <script>
+    fetch('posts.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('posts-container');
+        data.posts.forEach(post => {
+          const postDiv = document.createElement('div');
+          postDiv.className = 'post';
+
+          postDiv.innerHTML = `
+            <h2 class="post-title">${post.title}</h2>
+            <p class="post-content">${post.content}</p>
+            ${post.image ? `<img src="${post.image}" alt="Post Image">` : ''}
+          `;
+
+          container.appendChild(postDiv);
+        });
+      })
+      .catch(error => console.error('Error loading posts:', error));
+  </script>
+</body>
+</html>
